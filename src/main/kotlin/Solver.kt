@@ -5,8 +5,8 @@ object Solver {
             "First argument must be a puzzle (like rme,wcl,tgk,api)"
         }
 
-        val box = args[0].split(",").flatMapIndexed { i, edge ->
-            edge.uppercase().map { letter -> letter to i }
+        val box = args[0].split(",").flatMapIndexed { edgeId, edgeLetters ->
+            edgeLetters.uppercase().map { letter -> letter to edgeId }
         }.toMap()
 
         fun String.isValidForThisBox() = this.length >= 3 && this.map { letter -> box[letter] }.windowed(2)
