@@ -18,7 +18,7 @@ object Solver {
 
         validWordsByFirstLetter.values.flatten().forEach { firstWord ->
             validWordsByFirstLetter.getOrDefault(firstWord.last(), emptyList())
-                .filter { secondWord -> (firstWord.toSet() + secondWord.toSet()).size >= 12 }
+                .filter { secondWord -> (firstWord + secondWord).toSet().size >= 12 }
                 .forEach { secondWord -> println("$firstWord,$secondWord") }
         }
     }
